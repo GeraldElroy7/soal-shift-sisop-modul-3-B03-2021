@@ -75,9 +75,9 @@ void main()
     pthread_t tid[24];
 
     key_t key = 1234;
-    int(*value)[7];
+    // int(*value)[7];
     int shmid = shmget(key, sizeof(int), IPC_CREAT | 0666);
-    value = shmat(shmid, NULL, 0);
+    int *value = (int *)shmat(shmid, NULL, 0);
 
     int matrix3[7][7];
 
