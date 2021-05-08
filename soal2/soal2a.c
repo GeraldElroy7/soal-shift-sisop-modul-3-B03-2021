@@ -96,5 +96,8 @@ int main()
         printf("\n");
     }
 
-    return 0;
+    sleep(10);
+
+    shmdt(value);
+    shmctl(shmid, IPC_RMID, NULL);
 }
