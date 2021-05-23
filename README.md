@@ -209,6 +209,8 @@ shmctl(shmid, IPC_RMID, NULL);
 
 ## Soal 3
 
+[SourceCodeSoal3](https://github.com/GeraldElroy7/soal-shift-sisop-modul-2-B03-2021/tree/main/soal3)
+
 Pada soal 3, *user* diminta untuk membantu Alex dalam mensortir file-file sesuai dengan ekstensinya, baik file yang dipilih, semua file dalam folder, atapun file-file yang berada di *working directory*.
 
 ### Cara Pengerjaan 3A
@@ -544,9 +546,6 @@ Pada soal 3E, *user* diminta untuk memproses kategorisasi 1 file oleh 1 thread a
 ```
 
 File-file yang diproses dilakukan dengan thread yang jumlah tid-nya terus bertambah untuk memanggil fungsi `file_arg`. Setelah looping seleai, semua thread akan di join ke NULL.
-
-### Code Soal 3
-[SourceCodeSoal3](https://github.com/GeraldElroy7/soal-shift-sisop-modul-2-B03-2021/tree/main/soal3)
 
 ### Kendala Selama Pengerjaan
 
