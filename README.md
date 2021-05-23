@@ -209,7 +209,7 @@ shmctl(shmid, IPC_RMID, NULL);
 
 ## Soal 3
 
-[SourceCodeSoal3](https://github.com/GeraldElroy7/soal-shift-sisop-modul-2-B03-2021/tree/main/soal3)
+[SourceCodeSoal3](https://github.com/GeraldElroy7/soal-shift-sisop-modul-3-B03-2021/blob/main/soal3/soal3.c)
 
 Pada soal 3, *user* diminta untuk membantu Alex dalam mensortir file-file sesuai dengan ekstensinya, baik file yang dipilih, semua file dalam folder, atapun file-file yang berada di *working directory*.
 
