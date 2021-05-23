@@ -15,8 +15,8 @@ Pada soal no 2, *user* diminta membantu Crypto untuk membuatkan program matriks,
 
 ```c
 key_t key = 1234;
-   int shmid = shmget(key, sizeof(int), IPC_CREAT | 0666);
-   int *value = (int *)shmat(shmid, NULL, 0);
+int shmid = shmget(key, sizeof(int), IPC_CREAT | 0666);
+int *value = (int *)shmat(shmid, NULL, 0);
 ```
 
 Pertama, dibuat terlebih dahulu matrix yang diimplementasikan melalui array dua dimensi. Angka-angka akan diinput ke array dengan cara seperti di bawah ini: 
