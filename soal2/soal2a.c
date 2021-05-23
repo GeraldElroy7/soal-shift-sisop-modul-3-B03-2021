@@ -92,7 +92,7 @@ int main()
        }
    }
  
-   sleep(40);
+   sleep(60);
  
    shmdt(value);
    shmctl(shmid, IPC_RMID, NULL);
