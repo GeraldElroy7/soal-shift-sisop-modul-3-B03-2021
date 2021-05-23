@@ -213,7 +213,10 @@ shmctl(shmid, IPC_RMID, NULL);
 ### Contoh Output 2B
 ![image](https://user-images.githubusercontent.com/64303057/119264487-9e380400-bc0d-11eb-9616-af8eacfd0933.png)
 
+### Kendala Selama Pengerjaan
 
+1. Awalnya gagal menyimpan nilai matrix ke value shared memory yang berbentuk dual array, jadinya memakai value single array.
+2. Bingung untuk *run* program yang memiliki shared memory, baru mengetahui jika harus memakai dua terminal.
 
 ## Soal 3
 
