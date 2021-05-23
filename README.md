@@ -79,7 +79,7 @@ shmctl(shmid, IPC_RMID, NULL);
 ```  
 
 ### Contoh Output 2A
-![image](https://user-images.githubusercontent.com/64303057/119262093-2fa27880-bc04-11eb-94d0-280616858fe0.png)
+![image](https://user-images.githubusercontent.com/64303057/119264499-adb74d00-bc0d-11eb-8e2d-ee40ca6cbafa.png)
 
 
 ### Cara Pengerjaan 2B
@@ -211,7 +211,7 @@ shmctl(shmid, IPC_RMID, NULL);
 ```
 
 ### Contoh Output 2B
-![image](https://user-images.githubusercontent.com/64303057/119262063-18fc2180-bc04-11eb-9136-f368d390b968.png)
+![image](https://user-images.githubusercontent.com/64303057/119264487-9e380400-bc0d-11eb-9616-af8eacfd0933.png)
 
 
 
