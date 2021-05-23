@@ -1,5 +1,4 @@
 //REVISI 2A
-
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/shm.h>
