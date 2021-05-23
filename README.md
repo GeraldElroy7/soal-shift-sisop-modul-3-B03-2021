@@ -513,13 +513,13 @@ Pada fungsi `file_arg`, file yang tidak memiliki ekstensi adalah file yang tidak
 
 
 #### Output
-**Folder Hidden dan Unknown**
+##### Folder Hidden dan Unknown
 ![3D1](https://user-images.githubusercontent.com/65794806/119258930-65446300-bbfe-11eb-863e-88003f252029.png)
 
-**Isi folder Unknown**
+##### Isi folder Unknown
 ![3Dunk](https://user-images.githubusercontent.com/65794806/119258943-72f9e880-bbfe-11eb-8913-5b8a5847addc.png)
 
-**Isi folder Hidden**
+##### Isi folder Hidden
 ![3Dhidden](https://user-images.githubusercontent.com/65794806/119258961-81480480-bbfe-11eb-8aff-71d49e08b4b7.png)
 
 
@@ -544,6 +544,9 @@ Pada soal 3E, *user* diminta untuk memproses kategorisasi 1 file oleh 1 thread a
 ```
 
 File-file yang diproses dilakukan dengan thread yang jumlah tid-nya terus bertambah untuk memanggil fungsi `file_arg`. Setelah looping seleai, semua thread akan di join ke NULL.
+
+### Code Soal 3
+[SourceCodeSoal3](https://github.com/GeraldElroy7/soal-shift-sisop-modul-2-B03-2021/tree/main/soal3)
 
 ### Kendala Selama Pengerjaan
 
