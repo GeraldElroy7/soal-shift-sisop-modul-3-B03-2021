@@ -5,12 +5,6 @@
 2. Gerald Elroy Van Ryan 05111940000187
 3. Husnan                05111940007002
 
-## Soal 1
-Soal 1 belum dapat diselesaikan
-
-### Kendala Selama Pengerjaan
-1. Terdapat error segment fault (dump) pada server dan client
-
 ## Soal 2
 
 Pada soal no 2, *user* diminta membantu Crypto untuk membuatkan program matriks, yang nantinya matriks ini dapat melakukan perkalian (seperti pada umumnya) dan perkalian dengan kriteria khusus, yang mana nanti sistemnya seperti permutasi. 
@@ -83,6 +77,10 @@ sleep(40);
 shmdt(value);
 shmctl(shmid, IPC_RMID, NULL);
 ```  
+
+### Contoh Output 2A
+![image](https://user-images.githubusercontent.com/64303057/119262093-2fa27880-bc04-11eb-94d0-280616858fe0.png)
+
 
 ### Cara Pengerjaan 2B
 
@@ -212,8 +210,10 @@ shmdt(value);
 shmctl(shmid, IPC_RMID, NULL);
 ```
 
-### Kendala Selama Pengerjaan
-1. Terdapat Phtread yang error dalam membuat array tid serta kesalahan pengetikan yang membuat output code berubah
+### Contoh Output 2B
+![image](https://user-images.githubusercontent.com/64303057/119262063-18fc2180-bc04-11eb-9136-f368d390b968.png)
+
+
 
 ## Soal 3
 
