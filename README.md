@@ -183,10 +183,10 @@ void* move_file(char *pathc, char *ekstensi, char *namafile, char *alamat_asal)
 Selanjutya file akan dipidahkan dengan fungsi `rename()`.
 
 #### Output
-**Mensortir file * dan nako.zip**
+##### Mensortir file * dan nako.zip
 ![3 -f1](https://user-images.githubusercontent.com/65794806/119257832-b30a9c80-bbf9-11eb-86cf-4b9924b1cd52.png)
 
-**Hasil setelah di sortir**
+##### Hasil setelah di sortir
 ![3 -f2](https://user-images.githubusercontent.com/65794806/119257878-df261d80-bbf9-11eb-8ff7-16f0e01de8cf.png)
 
 ### Cara Pengerjaan 3B
@@ -297,13 +297,13 @@ void read_path(char *arg){
 Isi folder dapat disorti jika terdapat sebuah file sehingga `index_file` tidak boleh bernilai 0. Selanjutnya setiap file akan diproses kembali sesuai dengan algoritma soal3a melalui fungsi `file_arg`. Pada bagian akhir, file teks pembantu yaitu "proses.txt" akan dihapus.
 
 #### Output
-**Mensortir isi folder tescase**
+##### Mensortir isi folder tescase
 ![3 -d1](https://user-images.githubusercontent.com/65794806/119258232-67f18900-bbfb-11eb-9b18-5435cc5ff6d0.png)
 
-**Hasil sortir**
+##### Hasil sortir
 ![3 -d2](https://user-images.githubusercontent.com/65794806/119258267-86578480-bbfb-11eb-9b76-cd34af8981ff.png)
 
-**Semua file pada folder telah dipindah**
+##### Semua file pada folder telah dipindah
 ![3 -d3](https://user-images.githubusercontent.com/65794806/119258313-b69f2300-bbfb-11eb-94e4-be85e7d4a0b3.png)
 
 
@@ -358,10 +358,10 @@ void* move_file(char *pathc, char *ekstensi, char *namafile, char *alamat_asal)
 Akan tetapi, khusus untuk 3C, akan ada tambahan case dimana jika terdapat file yang bernama ekstensi folder, maka akan kita proses file tersebut terlebih dahulu agar tidak terjadi error dalam proses mkdir karena adanya nama yang *exist*. File yang dapat mempunyai nama yang sama dengan nama ekstensi folder pastinya berjenis "Unknown", oleh karena itu folder "Unknown" akan dibuat dan file yang beresiko tersebut dipindahkan terlebih dahulu. Kemudian setelah itu, dibuatlah folder yang diinginkan.
 
 #### Output
-**Kondisi sebelum argumen dijalankan**
+##### Kondisi sebelum argumen dijalankan
 ![3 star1](https://user-images.githubusercontent.com/65794806/119258631-1a761b80-bbfd-11eb-8595-ac44d7948464.png)
 
-**Hasil sortir**
+##### Hasil sortir
 ![3 star2](https://user-images.githubusercontent.com/65794806/119258657-3679bd00-bbfd-11eb-9b96-40513b55a60c.png)
 
 ### Cara Pengerjaan 3D
@@ -402,11 +402,37 @@ Pada fungsi `file_arg`, file yang tidak memiliki ekstensi adalah file yang tidak
 
 
 #### Output
-**Folder Hidden dan Unknown**
+##### Folder Hidden dan Unknown
 ![3D1](https://user-images.githubusercontent.com/65794806/119258930-65446300-bbfe-11eb-863e-88003f252029.png)
 
-**Isi folder Unknown**
+##### Isi folder Unknown
 ![3Dunk](https://user-images.githubusercontent.com/65794806/119258943-72f9e880-bbfe-11eb-8913-5b8a5847addc.png)
 
-**Isi folder Hidden**
+##### Isi folder Hidden
 ![3Dhidden](https://user-images.githubusercontent.com/65794806/119258961-81480480-bbfe-11eb-8aff-71d49e08b4b7.png)
+
+### Cara Pengerjaan 3E
+
+Pada soal 3E, *user* diminta untuk memproses kategorisasi 1 file oleh 1 thread agar bisa berjalan secara paralel sehingga proses kategori bisa berjalan lebih cepat
+
+```c
+...
+            pthread_create(&(tid[id_count]), NULL, file_arg, (void *)argv[i]);
+            id_count++;
+            i++;
+        }
+        else {
+            return 0;
+        }
+    }
+     for(int k = 0; k < id_count; k++){
+        pthread_join(tid[k],NULL);
+    }
+...
+```
+
+File-file yang diproses dilakukan dengan thread yang jumlah tid-nya terus bertambah untuk memanggil fungsi `file_arg`. Setelah looping seleai, semua thread akan di join ke NULL.
+
+### Kendala Selama Pengerjaan
+
+1. Problem pada 3C mengenai mkdir yang ternyata tidak dapat dibuat jika ada suatu folder atau file yang memiliki nama yang sama dengan folder yang ingin dibuat.
