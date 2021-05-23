@@ -131,10 +131,14 @@ void main()
                cell.cell2 = a;
            }
            pthread_create(&tid[index], NULL, &func, (void *)&cell);
-           pthread_join(tid[index], NULL);
            index++;
        }
        printf("\n");
+   }
+ 
+   for(int k = 0; k < index; k++)
+   {
+       pthread_join(tid[k], NULL);
    }
  
    shmdt(value);
