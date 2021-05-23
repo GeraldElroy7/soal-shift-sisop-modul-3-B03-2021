@@ -15,10 +15,12 @@ char tempArgv[PATH_MAX+1];
 char tempArgv2[PATH_MAX+1];
 char buf[PATH_MAX+1];
 char path_tujuan[1024];
+char path_file_ex[1024];
+char path_folder_unk[1024];
 void *file_arg(void *arg);
 char *namafile;
 char *alamat_file;
-pthread_t tid;
+pthread_t tid[1000];
 pthread_mutex_t lock;
 int index_file = 0;
 
@@ -100,6 +102,7 @@ void read_path(char *arg){
   }
 
   // Create Thread
+  int count_id = 0;
   while(fgets(buffer, bufLength, filepointer))
   {
     namafile = strrchr(buffer, '/') + 1;
@@ -111,9 +114,8 @@ void read_path(char *arg){
     else{
       buffer[strcspn(buffer, "\r\n")] = 0;  // buat hapus enter di buffer
 
-      pthread_create(&(tid), NULL, file_arg, (void *)buffer);
-
-      pthread_join(tid, NULL);
+      pthread_create(&(tid[count_id]), NULL, file_arg, (void *)buffer);
+      pthread_join(tid[count_id],NULL);
     }
   }
   fclose(filepointer);
@@ -207,13 +209,25 @@ void* cek_folder(char *foldername)
 void* move_file(char *pathc, char *ekstensi, char *namafile, char *alamat_asal)
 {
   sprintf(path_tujuan, "%s%s/%s", pathc, ekstensi, namafile);
-
   if (rename (alamat_asal, path_tujuan))
   {
     if (errno == EXDEV) {
     }
     else {
-        exit(EXIT_FAILURE);
+            mkdir("Unknown", 0700);
+            sprintf(path_file_ex, "%s/%s", pathc, ekstensi);
+            sprintf(path_folder_unk, "%s/Unknown/%s", pathc, ekstensi);
+          if (rename (path_file_ex, path_folder_unk))
+          {
+            if (errno == EXDEV) {
+            }
+            else {
+                //printf("Rename Error\n");
+                exit(EXIT_FAILURE);
+            };
+          }
+        mkdir(ekstensi, 0700);
+        move_file(pathc, ekstensi, namafile, alamat_asal);
     };
   }
 }
@@ -278,6 +292,7 @@ int main(int argc, char **argv)
   char tempTO[4];
   if(strcmp(argv[1], "-f") == 0)
   {
+    int id_count = 0;
     while (i < argc){
         memset(tempArgv,'\0', sizeof(tempArgv));
         memset(tempTO,'\0', sizeof(tempTO));
@@ -305,13 +320,16 @@ int main(int argc, char **argv)
             }
             strcpy(argv[i], tempArgv2);
 
-            pthread_create(&(tid), NULL, file_arg, (void *)argv[i]);
-            pthread_join(tid, NULL);
+            pthread_create(&(tid[id_count]), NULL, file_arg, (void *)argv[i]);
+            id_count++;
             i++;
         }
         else {
             return 0;
         }
+    }
+     for(int k = 0; k < id_count; k++){
+        pthread_join(tid[k],NULL);
     }
   }
   else if(strcmp(argv[1], "-d") == 0)
